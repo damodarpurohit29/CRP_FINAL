@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-vwid5788eo)x)h6n3@u2&#1s1ez$$p4wenh#mrdnqtvuo(olp)
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = [
-    'crp-final.onrender.com',  # Add your Render domain here
+    'crp-final-1.onrender.com',  # Add your Render domain here
     '127.0.0.1',
     'localhost',
 ]
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -289,3 +290,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://crp-final-1.onrender.com',
+]
+
+
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
