@@ -25,6 +25,7 @@ from drf_spectacular.views import (
 )
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),
     path('', lambda request: redirect('/admin/')),
     path('admin/', admin.site.urls),
     path('api/user/', include('accounts.urls')),
